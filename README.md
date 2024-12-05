@@ -1,2 +1,3 @@
-# TuringDSA_Batch2
-Turing Data Structures and Algotithms - Batch 2
+# Data Structures and Algotithms - Batch 2
+
+- [A Simple Explanation of Big O Notation with Examples](https://medium.com/@truongbui95/a-simple-explanation-of-big-o-notation-with-examples-e98b2c2fefa8)
