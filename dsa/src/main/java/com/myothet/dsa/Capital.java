@@ -22,6 +22,7 @@ public class Capital {
             
             String[] words = input.split(" ");
         }
+        return "";
     }
     
 }
