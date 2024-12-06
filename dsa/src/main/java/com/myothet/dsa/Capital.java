@@ -12,17 +12,25 @@ public class Capital {
     
     public String toCapital(String input)
     {
-        if (input == null || "".equals(input))
+        if(input == null || "".equals(input))
         {
             return "";
         }
         else
         {
-//            String word = (input.charAt(0) + "".toUpperCase() + input.substring(1));
-            
-            String[] words = input.split(" ");
+            String words[] = input.split(" ");
+            String result= "";
+            for(int i=0;i< words.length;i++)
+            {
+                result+=toCapitalForWord(words[i])+" ";
+            }
+            return result.trim();
         }
-        return "";
+    }
+
+    String toCapitalForWord(String input) {
+        String word = ( input.charAt(0) +"").toUpperCase()+ input.substring(1);
+        return word;
     }
     
 }

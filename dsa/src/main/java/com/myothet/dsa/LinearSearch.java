@@ -9,25 +9,21 @@ package com.myothet.dsa;
  * @author macos
  */
 public class LinearSearch {
-    
-    public int search(int[] array, int item)
+    public int search(int[]array,int item)
     {
-        for (int i=0; i<10; i++)
-        {
-            if(array[i] == item)
+        for (int i = 0; i < array.length; i++) {
+            if(array[i]==item)
             {
-                return item;
+                return i;
             }
         }
         return -1;
     }
-    
-    public static void main(String args[])
+    public static void main(String[]args)
     {
-    int[] input = {1,2,3,4,10};
-    
-    LinearSearch ls = new LinearSearch();
-    System.out.println("Search " + ls.search(input, 1));
+        int[] input = {1,2,3,4,10};
+        LinearSearch ls = new LinearSearch();
+        System.out.println("Search "+ ls.search(input, 100));
     }
     
 }
