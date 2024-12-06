@@ -13,30 +13,25 @@ import com.myothet.dsa.LinearSearch;
  * @author macos
  */
 public class TestLinearSearch {
+    
+    LinearSearch lsAlgo = new LinearSearch();
+    int[]input = {1,2,3,4,10, -1};
+        
     @Test
     public void testSearch()
     {
-        LinearSearch lsAlgo = new LinearSearch();
-        int[]input = {1,2,3,4,10};
-        
         int index = lsAlgo.search(input, 1);
         assertEquals(0,index);
     }
     @Test
     public void testUnhappyCase()
-    {
-        LinearSearch lsAlgo = new LinearSearch();
-        int[]input = {1,2,3,4,10};
-        
+    {   
         int index = lsAlgo.search(input, 120);
         assertEquals(-1,index);
     }
     @Test
     public void testEdgeCase()
-    {
-        LinearSearch lsAlgo = new LinearSearch();
-        int[]input = {1,2,3,4,10,-1};
-        
+    {   
         int index = lsAlgo.search(input, -1);
         assertEquals(5,index);
     }
