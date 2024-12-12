@@ -4,10 +4,11 @@ import com.myothet.dsa.util.Util;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-public class BubbleSortTest {
+public class TestSorting {
 
     Util util = new Util();
-    SortingAlgorithm bubbleSort = new BubbleSort();
+//    SortingAlgorithm bubbleSort = new BubbleSort();
+    SortingAlgorithm bubbleSort = new SelectionSort();
 
     @Test
     public void testBubbleSort() {
@@ -41,7 +42,10 @@ public class BubbleSortTest {
 
         int[] arr = util.createRandomArray(20);
 
+        System.out.println(util.arrayToString(arr));
         bubbleSort.sort(arr);
+        System.out.println(util.arrayToString(arr));
+        
         assertTrue(util.isArraySorted(arr));
     }
 }
