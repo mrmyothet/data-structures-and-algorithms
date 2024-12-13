@@ -13,13 +13,13 @@ C#, python, Java, PHP -> stack based VM
   - get - top
 - size()
 
-ADT - Abstrat Data Type
+### ADT - Abstrat Data Type
 
 abstract vs implementation
 
 ---
 
-Stack ကို Array implementation လုပ်ကြည့်မယ်
+### Stack ကို Array implementation လုပ်ကြည့်မယ်
 
 array = 10;
 right = top;
@@ -31,3 +31,7 @@ push(2)
 [1, 2]
 
 last element = top
+
+---
+
+### Delimiter Matching
