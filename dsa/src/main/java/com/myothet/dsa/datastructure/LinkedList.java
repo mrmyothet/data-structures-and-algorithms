@@ -16,18 +16,25 @@ public class LinkedList implements Iterable {
         this.last = node;
     }
 
-    void addFirst(Node node) {
+    void addFirst(int value) {
+        Node node = new Node(value);
+        addFirst(node);
+    }
 
+    void addFirst(Node node) {
         if (this.first == null) {
             this.first = node;
+            this.last = node;
         } else {
 
             node.setNext(this.first);
             this.first = node;
         }
+    }
 
-        this.last = node;
-
+    void addLast(int value) {
+        Node node = new Node(value);
+        addLast(node);
     }
 
     void addLast(Node node) {
@@ -41,7 +48,43 @@ public class LinkedList implements Iterable {
             this.last.setNext(node);
             this.last = node;
         }
+    }
 
+    public Node find(int item) {
+        Node current = this.first;
+
+        while (current != null) {
+            int currentValue = current.value;
+            if (currentValue == item) {
+                return current;
+            }
+
+            current = current.next;
+        }
+
+        return null;
+    }
+
+    public Node delete(int item) {
+        Node nodeToDelete = this.find(item);
+
+        if (nodeToDelete != null) {
+
+            if (first == nodeToDelete) {
+                // first == last => single item
+                if (first == last) {
+                    this.first = null;
+                    this.last = null;
+                    return nodeToDelete;
+                }
+            }//many items
+            else {
+                this.first = nodeToDelete.next;
+                return nodeToDelete;
+            }
+        }
+
+        return nodeToDelete;
     }
 
     @Override
@@ -73,9 +116,5 @@ public class LinkedList implements Iterable {
 
             return null;
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }
