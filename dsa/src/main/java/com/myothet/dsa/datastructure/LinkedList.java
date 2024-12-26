@@ -25,8 +25,22 @@ public class LinkedList implements Iterable {
             node.setNext(this.first);
             this.first = node;
         }
-        
+
         this.last = node;
+
+    }
+
+    void addLast(Node node) {
+
+        if (this.last == null)// first time
+        {
+            this.first = node;
+            this.last = node;
+
+        } else {
+            this.last.setNext(node);
+            this.last = node;
+        }
 
     }
 
