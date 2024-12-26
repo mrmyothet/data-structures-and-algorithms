@@ -15,4 +15,8 @@ public class Node {
     void setNext(Node second) {
         next = second;
     }    
+
+    int getValue() {
+        return value;
+    }
 }

@@ -6,6 +6,17 @@ import java.util.Iterator;
 public class LinkedList implements Iterable{
     Node first;
     Node last;
+    
+    LinkedList()
+    {
+    
+    }
+    
+    LinkedList(Node node)
+    {
+        first = node;
+        last = node;
+    }
 
     void addFirst(Node node) {
         
