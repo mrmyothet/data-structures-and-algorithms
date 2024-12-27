@@ -217,9 +217,9 @@ public class LinkedListTest {
         assertEquals(20, item.getValue());
 
         Iterator iterator = list.iterator();
-        
+
         assertEquals(10, list.getFirst().getValue());
-        
+
         assertEquals(10, ((Node) iterator.next()).getValue());
         assertEquals(30, ((Node) iterator.next()).getValue());
         assertEquals(40, ((Node) iterator.next()).getValue());
@@ -242,11 +242,11 @@ public class LinkedListTest {
         assertEquals(10, ((Node) iterator.next()).getValue());
         assertEquals(20, ((Node) iterator.next()).getValue());
         assertEquals(30, ((Node) iterator.next()).getValue());
-        
+
         assertEquals(30, list.getLast().getValue());
         assertFalse(iterator.hasNext());
     }
-    
+
     @Test
     public void Test_Multiple_Node() {
         LinkedList list = new LinkedList();
@@ -260,8 +260,6 @@ public class LinkedListTest {
         list.delete(40);
         list.delete(10);
 
-        
-        
         assertEquals(20, list.getLast().getValue());
         assertEquals(20, list.getFirst().getValue());
     }

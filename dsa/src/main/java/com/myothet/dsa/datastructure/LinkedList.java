@@ -65,27 +65,6 @@ public class LinkedList implements Iterable {
         return null;
     }
 
-//    public Node delete(int item) {
-//        Node nodeToDelete = this.find(item);
-//
-//        if (nodeToDelete != null) {
-//
-//            if (first == nodeToDelete) {
-//                // first == last => single item
-//                if (first == last) {
-//                    this.first = null;
-//                    this.last = null;
-//                    return nodeToDelete;
-//                }
-//            }//many items
-//            else {
-//                this.first = nodeToDelete.next;
-//                return nodeToDelete;
-//            }
-//        }
-//
-//        return nodeToDelete;
-//    }
     @Override
     public Iterator iterator() {
         return new ListIterator();
