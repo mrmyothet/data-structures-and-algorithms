@@ -3,15 +3,9 @@ package com.myothet.dsa.datastructure;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class StackTest {
-// Arrange 
-    // Stack
-// Act
-    // push(10)
-//Assert    
-    // behavior
+public class StackByLinkedListTest {
 
-    Stack stack = new Stack(10);
+    StackByLinkedList stack = new StackByLinkedList();
 
     @Test
     public void testPush() {
@@ -73,4 +67,5 @@ public class StackTest {
         int size = stack.size();
         assertEquals(0, size);
     }
+
 }

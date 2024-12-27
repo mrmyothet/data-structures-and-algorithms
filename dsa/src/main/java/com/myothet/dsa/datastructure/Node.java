@@ -16,4 +16,8 @@ public class Node {
     int getValue() {
         return value;
     }
+
+    public Node getNext() {
+        return this.next;
+    }
 }
