@@ -65,28 +65,27 @@ public class LinkedList implements Iterable {
         return null;
     }
 
-    public Node delete(int item) {
-        Node nodeToDelete = this.find(item);
-
-        if (nodeToDelete != null) {
-
-            if (first == nodeToDelete) {
-                // first == last => single item
-                if (first == last) {
-                    this.first = null;
-                    this.last = null;
-                    return nodeToDelete;
-                }
-            }//many items
-            else {
-                this.first = nodeToDelete.next;
-                return nodeToDelete;
-            }
-        }
-
-        return nodeToDelete;
-    }
-
+//    public Node delete(int item) {
+//        Node nodeToDelete = this.find(item);
+//
+//        if (nodeToDelete != null) {
+//
+//            if (first == nodeToDelete) {
+//                // first == last => single item
+//                if (first == last) {
+//                    this.first = null;
+//                    this.last = null;
+//                    return nodeToDelete;
+//                }
+//            }//many items
+//            else {
+//                this.first = nodeToDelete.next;
+//                return nodeToDelete;
+//            }
+//        }
+//
+//        return nodeToDelete;
+//    }
     @Override
     public Iterator iterator() {
         return new ListIterator();
@@ -116,5 +115,43 @@ public class LinkedList implements Iterable {
 
             return null;
         }
+    }
+
+    public Node getFirst() {
+        return this.first;
+    }
+
+    public Node getLast() {
+        return this.last;
+    }
+
+    public Node delete(int item) {
+        Node previous = null;
+        Node current = first;
+        Node nodeToDelete = null;
+
+        while (current != null) {
+            if (current.value == item) {
+                //Found node to be deleted
+                nodeToDelete = current;
+                if (first == current)// first node
+                {
+                    this.first = nodeToDelete.next;
+                    return nodeToDelete;
+
+                } else if (previous != null) {
+                    previous.next = nodeToDelete.next;
+
+                    if (nodeToDelete.next == null) {
+                        this.last = previous;
+                    }
+                    return nodeToDelete;
+                }
+            }
+            previous = current;
+            current = current.next;
+        }
+
+        return null;
     }
 }

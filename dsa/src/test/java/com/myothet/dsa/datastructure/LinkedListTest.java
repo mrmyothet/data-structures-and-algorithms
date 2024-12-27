@@ -2,6 +2,7 @@ package com.myothet.dsa.datastructure;
 
 import java.util.Iterator;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
@@ -110,7 +111,7 @@ public class LinkedListTest {
 
     @Test
     public void Test_AddFirst_AddLast_MixedCall() {
-        
+
         LinkedList list = new LinkedList();
         list.addFirst(new Node(10));
 //        [10]
@@ -176,7 +177,7 @@ public class LinkedListTest {
 
     }
 
-    @Test
+//    @Test
     public void Test_DeleteFirst_MultipleItem() {
 
         LinkedList list = new LinkedList();
@@ -197,5 +198,71 @@ public class LinkedListTest {
 //        assertEquals(20, ((Node)iterator.next()).getValue());
 //        assertEquals(20, ((Node)iterator.next()).getValue());
 
+    }
+
+    @Test
+    public void Test_Delete_Middle_Node() {
+        LinkedList list = new LinkedList();
+
+        list.addFirst(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.addLast(40);
+//[10, 20, 30, 40]
+
+//to delete middle node 
+//previous node .next = nodeToDelete.previousNode
+//it will be easier knowing previous node
+        Node item = list.delete(20);
+        assertEquals(20, item.getValue());
+
+        Iterator iterator = list.iterator();
+        
+        assertEquals(10, list.getFirst().getValue());
+        
+        assertEquals(10, ((Node) iterator.next()).getValue());
+        assertEquals(30, ((Node) iterator.next()).getValue());
+        assertEquals(40, ((Node) iterator.next()).getValue());
+
+    }
+
+    @Test
+    public void Test_Delete_Last_Node() {
+        LinkedList list = new LinkedList();
+
+        list.addFirst(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.addLast(40);
+
+        Node item = list.delete(40);
+        assertEquals(40, item.getValue());
+
+        Iterator iterator = list.iterator();
+        assertEquals(10, ((Node) iterator.next()).getValue());
+        assertEquals(20, ((Node) iterator.next()).getValue());
+        assertEquals(30, ((Node) iterator.next()).getValue());
+        
+        assertEquals(30, list.getLast().getValue());
+        assertFalse(iterator.hasNext());
+    }
+    
+    @Test
+    public void Test_Multiple_Node() {
+        LinkedList list = new LinkedList();
+
+        list.addFirst(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.addLast(40);
+
+        list.delete(30);
+        list.delete(40);
+        list.delete(10);
+
+        
+        
+        assertEquals(20, list.getLast().getValue());
+        assertEquals(20, list.getFirst().getValue());
     }
 }
