@@ -16,3 +16,27 @@ n! = n * (n-1)!
 - base case
 - input
 - divide and conquer method
+
+---
+
+```
+fact(0)
+1 * fact(0)
+2 * fact(1)
+3 * fact(2)
+4 * fact(3)
+
+
+```
+
+### Downsize of recursive
+
+when depth is big
+
+- stack frame ကြီးသွားနိုင်တယ်
+- stack overflow
+- space complexity will up
+
+### Iterative vs Recursive
+
+functional programming languages use recursion instead of iterative
