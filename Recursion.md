@@ -54,3 +54,30 @@ right = n-1
 middle = (left + right) / 2
 
 left < right
+
+---
+
+will implement binary search using recursion
+
+original implementation only provide input and item
+
+- binarySearch(array, item)
+
+if we use recursion, we need to provide left side or right side
+
+---
+
+### Divide and Conquer Algorithms
+
+array, number
+
+- [12, 0, 3, 30, 10492, 391, 103, 19, 21]
+
+divide into 2 items per group to compare
+
+- [12,0]
+- [3,30]
+- [10492, 391]
+- [103, 19]
+
+suitable in parallel execution - map - reduce
