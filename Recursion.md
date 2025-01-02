@@ -39,4 +39,18 @@ when depth is big
 
 ### Iterative vs Recursive
 
-functional programming languages use recursion instead of iterative
+- functional programming languages use recursion instead of iterative
+- tail call recursion
+
+### Binary Search Algorithm
+
+sorted array
+
+[1,3,6,9,10, 15, 34]
+
+left = 0
+right = n-1
+
+middle = (left + right) / 2
+
+left < right
