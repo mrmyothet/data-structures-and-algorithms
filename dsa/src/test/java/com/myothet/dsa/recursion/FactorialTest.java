@@ -14,8 +14,8 @@ public class FactorialTest {
         assertEquals(1, fact.factorial(1));
         assertEquals(6, fact.factorial(3));
         assertEquals(24, fact.factorial(4));
-        
+
 //         result = fact.factorial(100000);
-         // java.lang.StackOverflowError
+        // java.lang.StackOverflowError
     }
 }
