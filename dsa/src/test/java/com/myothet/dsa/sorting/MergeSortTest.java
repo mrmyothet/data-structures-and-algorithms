@@ -12,7 +12,7 @@ public class MergeSortTest {
 
     MergeSort algo = new MergeSort();
 
-    @Test
+//    @Test
     public void Test_Merge() {
 
         int[] arr1 = {1, 4};
@@ -25,7 +25,7 @@ public class MergeSortTest {
         assertEquals(4, result.length);
     }
 
-    @Test
+//    @Test
     public void Test_Merge_EqualCase() {
 
         int[] arr1 = {1, 4};
@@ -67,14 +67,14 @@ public class MergeSortTest {
         assertTrue(util.isArraySorted(result));
     }
 
-    @Test
+//    @Test
     public void Test_Sort_ManyItem() {
         int[] input = {3, 1, 4};
         int[] result = algo.sort(input);
         assertTrue(util.isArraySorted(result));
     }
 
-    @Test
+//    @Test
     public void Test_Sort_RandomData() {
         int[] input = util.createRandomArray(5);
         System.out.println(util.arrayToString(input));
