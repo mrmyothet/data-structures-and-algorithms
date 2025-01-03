@@ -1,7 +1,5 @@
 package com.myothet.dsa.sorting;
 
-import java.util.Arrays;
-
 public class MergeSortV2 {
 
     public void merge(int[] input, int left, int middle, int right) {
@@ -35,7 +33,7 @@ public class MergeSortV2 {
 
 //        System.out.println(Arrays.toString(result));
 //        System.out.println(Arrays.toString(input));
-        System.arraycopy(result, left, input, left, len);
+        System.arraycopy(result, 0, input, left, len);
     }
 
     public void MergeSort(int[] input, int left, int middle, int right) {

@@ -1,7 +1,6 @@
 package com.myothet.dsa.sorting;
 
 import com.myothet.dsa.util.Util;
-import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +35,7 @@ public class MergeSortTestV2 {
 
     @Test
     public void Test_Sort_RandomData() {
-        int[] input = util.createRandomArray(10);
+        int[] input = util.createRandomArray(15);
         System.out.println(util.arrayToString(input));
 
         algo.sort(input);
