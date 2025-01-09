@@ -1,37 +1,32 @@
-
 package com.myothet.dsa.sorting;
-public class ShellSort {
-    
-    // 9, 8, 3, 7, 5, 6, 4, 1
-    // N=8
-    
-    // N/2 = 8/2 = 4
-    
-//    gap = 4
-    
-    // 5,8,3,7,9,6,4,1
-    // 5,6,3,7,9,8,4,1
-    // 5,6,3,7,9,8,4,1
-    // 5,6,3,1,9,8,4,7
-    
-    // gap = gap/2 = 4/2 = 2
-    
-    // 3,6,5,1,9,8,4,7
-    // 3,1,5,6,9,8,4,7
-    // 3,1,5,6,9,8,4,7
-    // 3,1,5,6,9,8,4,7
-    // 3,1,5,6,4,8,9,7
-    // 3,1,5,6,4,7,9,8
-    
-    // gap = gap/2 = 2/2 = 1
-    
-    
-    // 3,1,5,6,4,7,9,8
-    // 1,3,5,6,4,7,9,8
-    // 1,3,5,6,4,7,9,8
-    // 1,3,5,6,4,7,9,8
-    
-    
-    
-    
+
+public class ShellSort implements SortingAlgorithm {
+
+    @Override
+    public void sort(int[] arr) {
+
+        int gap = arr.length / 2;
+
+        while (gap > 0) {
+            System.out.println("Gap " + gap);
+
+            for (int i = gap; i < arr.length; i++) {
+
+                System.out.println("Compare with " + i + " with " + (i + gap));
+
+                int temp = arr[i];
+                int j;
+
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+                    arr[j] = arr[j - gap];
+                }
+
+                arr[j] = temp;
+            }
+
+            gap = gap / 2;
+        }
+
+    }
+
 }
