@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class PartitionTest {
 
-//    @Test
+    @Test
     public void TestPartitionBoundaryCase() {
 
         int[] arr = {9, 8, 3, 7, 5, 6, 4, 1};
@@ -14,6 +14,7 @@ public class PartitionTest {
         QuickSort algo = new QuickSort();
 
         int pivotIndex = algo.findPivot(arr);
+        System.out.println("pivotIndex: " + pivotIndex);
 
         Assert_Pivot(arr, pivotIndex);
 
@@ -28,6 +29,7 @@ public class PartitionTest {
         QuickSort algo = new QuickSort();
 
         int pivotIndex = algo.findPivot(arr);
+        System.out.println("pivotIndex: " + pivotIndex);
 
         Assert_Pivot(arr, pivotIndex);
 
