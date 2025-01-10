@@ -17,7 +17,7 @@ public class Util {
         Random random = new Random();
         int[] arr = new int[size];
         
-        int bound = 1000;
+        int bound = 100;
 
         for (int i = 0; i < size; i++) {
             arr[i] = random.nextInt(bound);

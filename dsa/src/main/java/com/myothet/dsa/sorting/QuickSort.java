@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    int findPivot_1(int[] arr) {
+    int findPivot_before(int[] arr) {
         int tempPivotIndex = 0;
 
         int left = tempPivotIndex + 1;
@@ -54,33 +54,42 @@ public class QuickSort {
 
     public int findPivot(int[] arr, int start, int end) {
         int pivot = arr[end];
-        int pivotIndex = start;
+        int i = start - 1;
 
-        for (int j = start; j < end - 1; j++) {
+        for (int j = start; j < end; j++) {
+            
             if (arr[j] <= pivot) {
+
+                i++;
+
                 int temp = arr[j];
-                arr[j] = arr[pivotIndex];
-                arr[pivotIndex] = temp;
-                pivotIndex++;
+                arr[j] = arr[i];
+                arr[i] = temp;
             }
         }
 
-        int temp = arr[pivotIndex];
-        arr[pivotIndex] = arr[end];
-        arr[end] = temp;
+        if (arr[i] < pivot) {
+            int temp = arr[i];
+            arr[i] = arr[end];
+            arr[end] = temp;
+        }
 
-        return pivotIndex;
+        return i;
     }
 
     public void sort(int[] arr, int start, int end) {
-        if (start >= end) {
-            return;
+
+        if (start < end) {
+            int pivotIndex = findPivot(arr, start, end);
+
+            System.out.println(Arrays.toString(arr));
+            System.out.println("PivotIndex " + pivotIndex + " start: " + start + " end: " + end);
+            System.out.println("Pivot:" + arr[pivotIndex]);
+            System.out.println("");
+
+            sort(arr, start, pivotIndex - 1);
+            sort(arr, pivotIndex + 1, end);
         }
-
-        int pivotIndex = findPivot(arr, start, end);
-        sort(arr, start, pivotIndex - 1);
-        sort(arr, pivotIndex + 1, end);
-
     }
 
     public static void main(String[] args) {
@@ -89,7 +98,7 @@ public class QuickSort {
 
         QuickSort algo = new QuickSort();
 
-        int pivotIndex = algo.findPivot_1(arr);
+        int pivotIndex = algo.findPivot_before(arr);
         System.out.println("pivotIndex: " + pivotIndex);
     }
 

@@ -12,7 +12,7 @@ public class PartitionTest {
 
         QuickSort algo = new QuickSort();
 
-        int pivotIndex = algo.findPivot_1(arr);
+        int pivotIndex = algo.findPivot_before(arr);
         System.out.println("pivotIndex: " + pivotIndex);
 
         Assert_Pivot(arr, pivotIndex);
@@ -26,7 +26,7 @@ public class PartitionTest {
 
         QuickSort algo = new QuickSort();
 
-        int pivotIndex = algo.findPivot_1(arr);
+        int pivotIndex = algo.findPivot_before(arr);
         System.out.println("pivotIndex: " + pivotIndex);
 
         Assert_Pivot(arr, pivotIndex);
@@ -40,7 +40,7 @@ public class PartitionTest {
 
         QuickSort algo = new QuickSort();
 
-        int pivotIndex = algo.findPivot_1(arr);
+        int pivotIndex = algo.findPivot_before(arr);
         System.out.println("pivotIndex: " + pivotIndex);
 
         Assert_Pivot(arr, pivotIndex);
