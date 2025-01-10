@@ -4,11 +4,10 @@ import com.myothet.dsa.util.Util;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-
 public class ShellSortTest {
-    
+
     Util util = new Util();
-    
+
     SortingAlgorithm shellSort = new ShellSort();
 
     @Test
@@ -19,8 +18,8 @@ public class ShellSortTest {
 
         assertTrue(util.isArraySorted(arr));
     }
-    
-     @Test
+
+    @Test
     public void testShellSortRandom() {
 
         int[] arr = util.createRandomArray(20);
@@ -28,8 +27,8 @@ public class ShellSortTest {
 //        System.out.println(util.arrayToString(arr));
         shellSort.sort(arr);
 //        System.out.println(util.arrayToString(arr));
-        
+
         assertTrue(util.isArraySorted(arr));
     }
-    
+
 }
