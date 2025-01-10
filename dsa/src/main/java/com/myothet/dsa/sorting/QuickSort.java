@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    int findPivot(int[] arr) {
+    int findPivot_1(int[] arr) {
         int tempPivotIndex = 0;
 
         int left = tempPivotIndex + 1;
@@ -51,6 +51,29 @@ public class QuickSort {
 
         return tempPivotIndex;
     }
+    
+    public int findPivot(int[] arr, int start, int end)
+    {
+        int pivot = arr[end];
+        int pivotIndex = start;
+        
+        for(int j=start; j<end-1; j++)
+        {
+            if (arr[j] <= pivot)
+            {
+                int temp=arr[j];
+                arr[j] = arr[pivotIndex];
+                arr[pivotIndex] = temp;
+                pivotIndex++;
+            }
+        }
+        
+        int temp=arr[pivotIndex];
+        arr[pivotIndex] = arr[end];
+        arr[end] = temp;
+        
+        return pivotIndex;
+    }
 
     public static void main(String[] args) {
 
@@ -58,7 +81,7 @@ public class QuickSort {
 
         QuickSort algo = new QuickSort();
 
-        int pivotIndex = algo.findPivot(arr);
+        int pivotIndex = algo.findPivot_1(arr);
         System.out.println("pivotIndex: " + pivotIndex);
     }
 
