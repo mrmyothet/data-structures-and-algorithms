@@ -29,7 +29,7 @@ public class RadixSort {
             }
         }
                 
-        return max; 
+        return String.valueOf(max).length();
     }
     
     public void sort(int[] arr)
