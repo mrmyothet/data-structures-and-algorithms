@@ -16,9 +16,11 @@ public class Util {
     public int[] createRandomArray(int size) {
         Random random = new Random();
         int[] arr = new int[size];
+        
+        int bound = 1000;
 
         for (int i = 0; i < size; i++) {
-            arr[i] = random.nextInt();
+            arr[i] = random.nextInt(bound);
         }
 
         return arr;

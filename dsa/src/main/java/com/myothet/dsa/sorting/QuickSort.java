@@ -51,28 +51,36 @@ public class QuickSort {
 
         return tempPivotIndex;
     }
-    
-    public int findPivot(int[] arr, int start, int end)
-    {
+
+    public int findPivot(int[] arr, int start, int end) {
         int pivot = arr[end];
         int pivotIndex = start;
-        
-        for(int j=start; j<end-1; j++)
-        {
-            if (arr[j] <= pivot)
-            {
-                int temp=arr[j];
+
+        for (int j = start; j < end - 1; j++) {
+            if (arr[j] <= pivot) {
+                int temp = arr[j];
                 arr[j] = arr[pivotIndex];
                 arr[pivotIndex] = temp;
                 pivotIndex++;
             }
         }
-        
-        int temp=arr[pivotIndex];
+
+        int temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
-        
+
         return pivotIndex;
+    }
+
+    public void sort(int[] arr, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+
+        int pivotIndex = findPivot(arr, start, end);
+        sort(arr, start, pivotIndex - 1);
+        sort(arr, pivotIndex + 1, end);
+
     }
 
     public static void main(String[] args) {
