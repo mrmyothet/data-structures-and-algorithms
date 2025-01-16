@@ -1,5 +1,7 @@
 package com.myothet.dsa.sorting;
 
+import java.util.ArrayList;
+
 public class RadixSort {
 
     /* Lease Significant Digit
@@ -28,8 +30,42 @@ public class RadixSort {
         return String.valueOf(max).length();
     }
 
-    public void sort(int[] arr) {
+    public int[] sort(int[] arr) {
         int length = this.digitLength(arr);
+
+        int MAX_DIGIT = Integer.MAX_VALUE;
+
+        for (int i = 0; i < length; i++) {
+            // bucket 10
+            // Initialize
+
+            var items = new ArrayList<ArrayList<Integer>>();
+            for (int j = 0; j < MAX_DIGIT; j++) {
+
+                var list = new ArrayList<Integer>();
+                items.add(list);
+            }
+
+            // collect digit into bucket according to position
+            for (int k = 0; k < arr.length; k++) {
+                int index = this.getDigitAtIndex(arr[k], i);
+                items.get(index).add(arr[k]);
+            }
+
+            // collect bucket into single ArrayList
+            ArrayList<Integer> allItems = new ArrayList<Integer>();
+            for (int k = 0; k < MAX_DIGIT; k++) {
+//                allItems.addAll(list);
+            }
+
+            // copied back to array
+            for (int j = 0; j < MAX_DIGIT; j++) {
+
+            }
+
+        }
+
+        return arr;
 
     }
 
