@@ -16,24 +16,34 @@ public class RadixSort {
     [2,2,45,66,]
     
      */
-    
-    public int digitLength(int[] arr)
-    {
+    public int digitLength(int[] arr) {
         int max = arr[0];
-        
-        for(int i=1; i<arr.length; i++)
-        {
-            if(arr[i] > max)
-            {
-                max= arr[i];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
             }
         }
-                
+
         return String.valueOf(max).length();
     }
-    
-    public void sort(int[] arr)
-    {
-        
+
+    public void sort(int[] arr) {
+        int length = this.digitLength(arr);
+
+    }
+
+    public int getDigitAtIndex(int num, int position) {
+        String str = String.valueOf(num);
+
+        if (position <= str.length() - 1) {
+
+            int index = str.length() - (position + 1);
+
+            char ch = str.charAt(index);
+            return Integer.valueOf(ch + "");
+        } else {
+            return 0;
+        }
     }
 }
