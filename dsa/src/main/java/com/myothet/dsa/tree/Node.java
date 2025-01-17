@@ -1,35 +1,49 @@
-
 package com.myothet.dsa.tree;
 
 public class Node {
+
     int value;
-    
+
     Node leftChild;
     Node rightChild;
 
+    Node parent;
+
+    public void setParent(Node parentNode) {
+        this.parent = parentNode;
+    }
+
+    public Node getParent() {
+        return this.parent;
+    }
+
     Node(int value) {
-        
+
         this.value = value;
     }
-    
+
     // design pattern - composite pattern
-    
-    public void setValue(int value)
-    {
+    public void setValue(int value) {
         this.value = value;
     }
-    
-    public int getValue()
-    {
+
+    public int getValue() {
         return this.value;
     }
 
-    void setRightChild(Node right) {
-        this.rightChild = right;
+    void setRightChild(Node child) {
+        this.rightChild = child;
+        
+        this.rightChild.setParent(this);
+        
+        
     }
 
-    void setLeftChild(Node left) {
-        this.leftChild = left;
+    void setLeftChild(Node child) {
+        this.leftChild = child;
+        
+        this.leftChild.setParent(this);
+        
     }
 
     public Node getLeftChild() {
@@ -39,6 +53,5 @@ public class Node {
     public Node getRightChild() {
         return this.rightChild;
     }
-    
-    
+
 }

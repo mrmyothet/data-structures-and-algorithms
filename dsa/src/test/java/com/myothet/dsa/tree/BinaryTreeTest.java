@@ -19,6 +19,52 @@ public class BinaryTreeTest {
         return tree;
 
     }
+    
+    @Test
+    public BinaryTree GetBinaryTreeForInsert() {
+        Node root = new Node(60);
+        Node left1 = new Node(40);
+        
+        Node left2 = new Node(30);
+        Node right2 = new Node(50);
+
+        root.setLeftChild(left1);
+        
+        left1.setLeftChild(left2);
+        left1.setRightChild(right2);
+
+        BinaryTree tree = new BinaryTree(root);
+
+        return tree;
+
+    }
+    
+    @Test
+    public BinaryTree GetBinaryTreeForInsertNode() {
+        Node root = new Node(17);
+        
+        Node left1 = new Node(15);
+        Node right1 = new Node(30);
+        
+        Node left2 = new Node(13);
+        Node right2 = new Node(16);
+
+        root.setLeftChild(left1);
+        root.setRightChild(right1);
+        
+        left1.setLeftChild(left2);
+        left1.setRightChild(right2);
+        
+        Node right1_left = new Node(18);
+        
+        right1.setLeftChild(right1_left);
+        right1.setRightChild(new Node(35));
+
+        BinaryTree tree = new BinaryTree(root);
+
+        return tree;
+
+    }
 
     @Test
     private void Test_Tree_Creation() {

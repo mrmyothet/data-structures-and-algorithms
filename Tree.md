@@ -29,3 +29,11 @@ expression -> abstract tree
 
 - balanced tree
 - unblanced tree
+
+---
+
+### traversing
+
+- **Pre** -> Root - left - right
+- **In** -> left - Root - right
+- **Post** -> left - right - Root
