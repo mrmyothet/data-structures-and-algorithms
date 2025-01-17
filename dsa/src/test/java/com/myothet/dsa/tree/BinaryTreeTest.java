@@ -41,24 +41,26 @@ public class BinaryTreeTest {
         assertEquals(8, resultNode.getValue());
     }
     
+    @Test
+    public void Test_Search_Left_Node()
+    {
+        BinaryTree  tree = GetBinaryTree();
+        
+        Node resultNode = tree.search(6);
+        assertEquals(6, resultNode.getValue());
+    }
+    
     
     @Test
     public void Test_Search_Right_Node()
     {
         BinaryTree  tree = GetBinaryTree();
         
-        Node resultNode = tree.search(8);
-        assertEquals(8, resultNode.getValue());
+        Node resultNode = tree.search(7);
+        assertEquals(7, resultNode.getValue());
     }
     
     
-    @Test
-    public void Test_Search_Left_Node()
-    {
-        BinaryTree  tree = GetBinaryTree();
-        
-        Node resultNode = tree.search(8);
-        assertEquals(8, resultNode.getValue());
-    }
+    
     
 }
