@@ -16,10 +16,26 @@ public class RadixSortTest {
 
         int[] arr = {100, 2000, 3};
 
-        assertEquals(4, sort.digitLength(arr));
+        assertEquals(4, sort.digitLen(arr));
     }
 
-//    @Test
+    @Test
+    public void test_getDigitAtIndex() {
+        assertEquals(3, algo.getDigitAtPosition(3, 0));
+        assertEquals(0, algo.getDigitAtPosition(3, 1));
+        assertEquals(0, algo.getDigitAtPosition(3, 2));
+
+        assertEquals(0, algo.getDigitAtPosition(1, 1));
+
+        assertEquals(1, algo.getDigitAtPosition(13, 1));
+        assertEquals(2, algo.getDigitAtPosition(23, 1));
+        assertEquals(2, algo.getDigitAtPosition(123, 1));
+
+        assertEquals(3, algo.getDigitAtPosition(323, 2));
+
+    }
+
+    @Test
     public void testSort() {
         int[] arr = {4, 7, 5, 6, 3, 1};
 
@@ -28,19 +44,13 @@ public class RadixSortTest {
     }
 
     @Test
-    public void test_getDigitAtIndex() {
-        assertEquals(3, algo.getDigitAtIndex(3, 0));
-        assertEquals(0, algo.getDigitAtIndex(3, 1));
-        assertEquals(0, algo.getDigitAtIndex(3, 2));
+    public void testSortRandomData() {
+        int[] arr = util.createRandomArray(20);
 
-        assertEquals(0, algo.getDigitAtIndex(1, 1));
+        arr = algo.sort(arr);
+        assertTrue(util.isArraySorted(arr));
 
-        assertEquals(1, algo.getDigitAtIndex(13, 1));
-        assertEquals(2, algo.getDigitAtIndex(23, 1));
-        assertEquals(2, algo.getDigitAtIndex(123, 1));
-
-        assertEquals(3, algo.getDigitAtIndex(323, 2));
-
+        System.out.println("Sorted " + util.arrayToString(arr));
     }
 
 }

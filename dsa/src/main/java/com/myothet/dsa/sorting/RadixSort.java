@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class RadixSort {
 
+    private static final int MAX_DIGIT = 10;
+
     /* Lease Significant Digit
     
     int[] arr = {170, 45, 75, 90, 2, 802, 2, 66};
@@ -18,7 +20,7 @@ public class RadixSort {
     [2,2,45,66,]
     
      */
-    public int digitLength(int[] arr) {
+    public int digitLen(int[] arr) {
         int max = arr[0];
 
         for (int i = 1; i < arr.length; i++) {
@@ -31,45 +33,35 @@ public class RadixSort {
     }
 
     public int[] sort(int[] arr) {
-        int length = this.digitLength(arr);
-
-        int MAX_DIGIT = Integer.MAX_VALUE;
-
+        int length = this.digitLen(arr);
         for (int i = 0; i < length; i++) {
-            // bucket 10
-            // Initialize
-
+            //Bucket 10;
+            //Initialize
             var items = new ArrayList<ArrayList<Integer>>();
             for (int j = 0; j < MAX_DIGIT; j++) {
-
-                var list = new ArrayList<Integer>();
+                ArrayList<Integer> list = new ArrayList<>();
                 items.add(list);
             }
-
-            // collect digit into bucket according to position
+            //Collect digit into bucket according to position
             for (int k = 0; k < arr.length; k++) {
-                int index = this.getDigitAtIndex(arr[k], i);
+                int index = this.getDigitAtPosition(arr[k], i);
                 items.get(index).add(arr[k]);
             }
-
-            // collect bucket into single ArrayList
-            ArrayList<Integer> allItems = new ArrayList<Integer>();
-            for (int k = 0; k < MAX_DIGIT; k++) {
-//                allItems.addAll(list);
-            }
-
-            // copied back to array
+            //collect bucket list to single arraylist
+            ArrayList<Integer> allItem = new ArrayList<>();
             for (int j = 0; j < MAX_DIGIT; j++) {
-
+                ArrayList<Integer> list = items.get(j);
+                allItem.addAll(list);
             }
-
+            //copied back to array
+            for (int k = 0; k < arr.length; k++) {
+                arr[k] = allItem.get(k);
+            }
         }
-
         return arr;
-
     }
 
-    public int getDigitAtIndex(int num, int position) {
+    public int getDigitAtPosition(int num, int position) {
         String str = String.valueOf(num);
 
         if (position <= str.length() - 1) {
