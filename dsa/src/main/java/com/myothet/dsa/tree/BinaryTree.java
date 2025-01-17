@@ -62,6 +62,8 @@ public class BinaryTree {
                 current = current.getLeftChild();
             }
         }
+        
+        parent = current.parent;
 
         if (parent.getValue() < item) {
             parent.setRightChild(insertedNode);
@@ -73,4 +75,6 @@ public class BinaryTree {
 
         return insertedNode;
     }
+
+    
 }

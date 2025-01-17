@@ -32,18 +32,14 @@ public class Node {
     }
 
     void setRightChild(Node child) {
+        child.setParent(this);
         this.rightChild = child;
-        
-        this.rightChild.setParent(this);
-        
-        
+
     }
 
     void setLeftChild(Node child) {
+        child.setParent(this);
         this.leftChild = child;
-        
-        this.leftChild.setParent(this);
-        
     }
 
     public Node getLeftChild() {
