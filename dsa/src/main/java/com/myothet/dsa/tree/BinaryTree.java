@@ -54,16 +54,15 @@ public class BinaryTree {
         Node parent = null;
 
         while (current != null) {
-            if (current.getValue() < item) {
-                current = current.getRightChild();
-            }
+
+            parent = current;
 
             if (current.getValue() < item) {
+                current = current.getRightChild();
+            } else if (current.getValue() > item) {
                 current = current.getLeftChild();
             }
         }
-        
-        parent = current.parent;
 
         if (parent.getValue() < item) {
             parent.setRightChild(insertedNode);
@@ -76,5 +75,4 @@ public class BinaryTree {
         return insertedNode;
     }
 
-    
 }

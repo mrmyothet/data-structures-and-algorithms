@@ -15,7 +15,7 @@ public class PreOrderTraversal implements BinaryTreeTraversal {
 
     @Override
     public Iterator<Node> iterator() {
-        return null;
+        return new TreeIterator();
     }
 
     public void TraversePreOrder() {

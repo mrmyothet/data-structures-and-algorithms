@@ -15,7 +15,7 @@ public class PostOrderTraversal implements BinaryTreeTraversal {
 
     @Override
     public Iterator<Node> iterator() {
-        return null;
+        return new TreeIterator();
     }
 
     public void TraversePostOrder() {
@@ -24,11 +24,9 @@ public class PostOrderTraversal implements BinaryTreeTraversal {
     }
 
     public void traversePostOrder(Node node) {
-        
-        // usecase - generate byte code from syntax tree
-        
-        // Left - Right - Root 
 
+        // usecase - generate byte code from syntax tree
+        // Left - Right - Root 
         if (node.getLeftChild() != null) {
 
             this.traversePostOrder(node.leftChild);
