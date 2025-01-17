@@ -25,6 +25,8 @@ public class PostOrderTraversal implements BinaryTreeTraversal {
 
     public void traversePostOrder(Node node) {
         
+        // usecase - generate byte code from syntax tree
+        
         // Left - Right - Root 
 
         if (node.getLeftChild() != null) {
