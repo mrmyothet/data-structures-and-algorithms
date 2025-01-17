@@ -8,6 +8,8 @@ public class BinaryTree {
         this.root = root;
     }
 
+    /*
+    // loop version 
     public Node search(int item) {
         Node current = this.root;
 
@@ -26,5 +28,29 @@ public class BinaryTree {
 
         return null;
     }
-
+     */
+    
+    public Node search(int item)
+    {
+        return this.searchRecursive(item, root);
+    }
+    
+    public Node searchRecursive(int item, Node current)
+    {
+        if (current.getValue() == item)
+        {
+            return current;
+        }
+        
+        if(current.getValue() < item)
+        {
+            return this.searchRecursive(item, current.getRightChild());
+        }
+        else if(current.getValue() > item)
+        {
+            return this.searchRecursive(item, current.getLeftChild());
+        }
+        
+        return null;
+    }
 }
