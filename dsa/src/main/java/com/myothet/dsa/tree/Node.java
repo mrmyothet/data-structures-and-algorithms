@@ -49,5 +49,15 @@ public class Node {
     public Node getRightChild() {
         return this.rightChild;
     }
+    
+    public boolean isLeaf()
+    {
+        return this.leftChild==null && this.rightChild==null;
+    }
+    
+    public boolean isSubTree()
+    {
+        return this.leftChild != null || this.rightChild != null;
+    }
 
 }

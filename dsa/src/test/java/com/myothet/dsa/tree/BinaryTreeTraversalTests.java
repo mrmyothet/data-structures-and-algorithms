@@ -61,7 +61,23 @@ public class BinaryTreeTraversalTests {
         BinaryTreeTraversal traversal = new InOrderTraversal(tree);
         Iterator<Node> iterator = traversal.iterator();
 
-        // 13,15,16,17,18,19,30,35
+        // 13, 15, 16, 17, 18, 19, 30, 35
+        assertEquals(13, iterator.next().value);
+        assertEquals(15, iterator.next().value);
+        assertEquals(16, iterator.next().value);
+        assertEquals(17, iterator.next().value);
+        assertEquals(18, iterator.next().value);
+        assertEquals(19, iterator.next().value);
+        assertEquals(30, iterator.next().value);
+        assertEquals(35, iterator.next().value);
+    }
+    
+    @Test
+    public void Test_InOrder_Traversal_Imperative() {
+        BinaryTreeTraversal traversal = new InOrderTraversalImperative(tree);
+        Iterator<Node> iterator = traversal.iterator();
+
+        // 13, 15, 16, 17, 18, 19, 30, 35
         assertEquals(13, iterator.next().value);
         assertEquals(15, iterator.next().value);
         assertEquals(16, iterator.next().value);
