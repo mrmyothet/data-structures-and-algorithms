@@ -25,47 +25,44 @@ public class PostOrderTraversalIterative implements BinaryTreeTraversal {
     }
 
     public void traversePostOrder(Node node) {
-
-        Stack<Node> stack = new Stack<Node>();
+        Stack<Node> stack = new Stack<>();
         ArrayList<Node> visited = new ArrayList<Node>();
-
         Node current = node;
 
         while (current != null) {
+
             while (current.leftChild != null) {
-
-                stack.push(current);
                 System.out.println("push " + current.value);
-
+                stack.push(current);
                 current = current.leftChild;
             }
 
             if (current.rightChild != null) {
-                System.out.println("");
-                current = current.rightChild;
+                System.out.println("Right child case");
             }
 
-            System.out.println("Node " + current.value);
             list.add(current);
+            System.out.println("Node " + current.value);
 
-            if (!stack.isEmpty()) {
-
+            if (!stack.empty())//left deadend or right deadend
+            {
                 Node backtrackNode = stack.pop();
 
                 if (!visited.contains(backtrackNode)) {
-
                     System.out.println("Not visited, push " + backtrackNode.value);
                     stack.push(backtrackNode);
                     visited.add(backtrackNode);
 
-                } else {
-
-                    System.out.println("Node " + backtrackNode.value);
+                } else //process root
+                {
                     list.add(backtrackNode);
+                    System.out.println("Node " + backtrackNode.value);
 
-                    if (!stack.isEmpty()) {
+                    if (!stack.empty()) {
+
                         current = stack.pop();
                         continue;
+
                     } else {
                         break;
                     }
@@ -75,7 +72,16 @@ public class PostOrderTraversalIterative implements BinaryTreeTraversal {
                 if (backtrackNode.rightChild != null) {
 
                     System.out.println("Go to right child of " + backtrackNode.value);
+
                     current = backtrackNode.rightChild;
+                    visited.add(backtrackNode.rightChild);
+                } else //no right child process root
+                {
+                    System.out.println("This case " + backtrackNode.value);
+                    //current = backtrackNode;
+                    System.out.println("Node " + backtrackNode.value);
+                    list.add(backtrackNode);
+                    break;
                 }
             } else {
                 break;
