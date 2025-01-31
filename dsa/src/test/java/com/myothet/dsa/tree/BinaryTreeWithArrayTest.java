@@ -75,7 +75,7 @@ public class BinaryTreeWithArrayTest {
     public void Test_Search() {
 
         BinaryTreeWithArray tree = new BinaryTreeWithArray();
-        
+
         tree.insert(17);
         tree.insert(15);
         tree.insert(30);
@@ -84,17 +84,16 @@ public class BinaryTreeWithArrayTest {
         tree.insert(18);
         tree.insert(35);
         tree.insert(19);
-        
+
         assertEquals(0, tree.search(17));
         assertEquals(1, tree.search(15));
         assertEquals(3, tree.search(13));
         assertEquals(4, tree.search(16));
         assertEquals(5, tree.search(18));
         assertEquals(6, tree.search(35));
-        
+
         assertEquals(12, tree.search(19));
         assertEquals(-1, tree.search(28));
-        
-        
+
     }
 }

@@ -32,16 +32,16 @@ public class BinaryTreeWithArray {
 
         while (current != null) {
             if (current == item) {
-                
+
                 return index;
-                
+
             } else if (item < current) {
-                
+
                 index = index * 2 + 1;
                 current = tree[index];
-                
+
             } else if (item > current) {
-                
+
                 index = index * 2 + 2;
                 current = tree[index];
             }
