@@ -10,6 +10,11 @@ public class TwoThreeFourTree {
         {
             root = this.createTwoNode(null, value);
         }
+        else
+        {
+            Node node = this.root;
+            node.insert(value);
+        }
     }
     
     public Node createTwoNode(Node parent, int value)
@@ -17,6 +22,7 @@ public class TwoThreeFourTree {
         Node node = new Node();
         node.keys[0] = value;
         node.parent = parent;
+        node.noOfNodes++;
         return node;
     }
     
