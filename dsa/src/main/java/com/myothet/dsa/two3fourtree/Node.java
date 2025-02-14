@@ -101,17 +101,13 @@ public class Node {
         // go to children
         if (current.children.size() > 0) {
             System.out.println("Index " + index);
-            
-            if(current.keys[index] == null)
-            {
+
+            if (current.keys[index] == null) {
+                return current.children.get(index);
+            } else {
                 return current.children.get(index);
             }
-            else
-            {
-            return current.children.get(index);
-            }
-            
-            
+
         } else {
             return null;
         }
