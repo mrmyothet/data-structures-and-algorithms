@@ -4,8 +4,9 @@ public class TwoThreeFourTree {
 
     Node root;
     
-    public void insert(int value)
+    public Node insert(int value)
     {
+        Node insertedNode = new Node();
         if (root == null)
         {
             root = this.createTwoNode(null, value);
@@ -13,8 +14,9 @@ public class TwoThreeFourTree {
         else
         {
             Node node = this.root;
-            node.insert(value);
+            return node.insert(value);
         }
+        return insertedNode;
     }
     
     public Node createTwoNode(Node parent, int value)
