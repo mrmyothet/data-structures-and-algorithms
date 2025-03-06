@@ -2,6 +2,7 @@ package com.myothet.dsa.graph;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class GraphAMatrix {
 
@@ -36,5 +37,34 @@ public class GraphAMatrix {
         int toIndex = this.vertices.indexOf(to);
 
         return this.matrix[fromIndex][toIndex] != 0;
+    }
+
+    List<String> getAdjacentVertices(String from) {
+        List<String> vertices = new ArrayList<String>();
+
+        for (String vertex : this.vertices) {
+            if (!from.equals(vertex)) {
+                if (this.existEdge(from, vertex)) {
+                    vertices.add(vertex);
+                }
+            }
+        }
+
+        return vertices;
+    }
+
+    public List<String> DepthFirstSearch() {
+        List<String> visited = new ArrayList<String>();
+        Stack<String> stack = new Stack<String>();
+
+        String root = this.vertices.get(0);
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            String vertex = stack.pop();
+//            visited 
+        }
+
+        return visited;
     }
 }
