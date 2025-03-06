@@ -67,9 +67,8 @@ public class AdjancenvyMatrixGraphTest {
 
         graph.addEdge("B", "D");
         graph.addEdge("B", "E");
-
-        graph.addEdge("C", "D");
-        graph.addEdge("C", "E");
+        
+        graph.addEdge("C", "F");
 
         graph.addEdge("D", "E"); // cycle case
 
@@ -81,6 +80,7 @@ public class AdjancenvyMatrixGraphTest {
 
         adjacentVertices = graph.getAdjacentVertices("B");
         iterator = adjacentVertices.iterator();
+        assertEquals("A", iterator.next());
         assertEquals("D", iterator.next());
         assertEquals("E", iterator.next());
         assertFalse(iterator.hasNext());
@@ -96,7 +96,7 @@ public class AdjancenvyMatrixGraphTest {
      * C - F
      *
      */
-//    @Test
+    @Test
     public void test_DFS() {
 
         /**
@@ -120,9 +120,8 @@ public class AdjancenvyMatrixGraphTest {
 
         graph.addEdge("B", "D");
         graph.addEdge("B", "E");
-
-        graph.addEdge("C", "D");
-        graph.addEdge("C", "E");
+        
+        graph.addEdge("C", "F");
 
         graph.addEdge("D", "E"); // cycle case
 

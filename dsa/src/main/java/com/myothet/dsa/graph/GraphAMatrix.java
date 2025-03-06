@@ -1,6 +1,7 @@
 package com.myothet.dsa.graph;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -62,7 +63,21 @@ public class GraphAMatrix {
 
         while (!stack.isEmpty()) {
             String vertex = stack.pop();
-//            visited 
+
+            if (!visited.contains(vertex)) {
+                visited.add(vertex);
+            }
+
+            List<String> adjacentVertices = this.getAdjacentVertices(vertex);
+
+//            Collections.reverse(adjacentVertices);
+            for (int i = adjacentVertices.size() - 1; i >= 0; i--) {
+                String adjVertex = adjacentVertices.get(i);
+                if (!visited.contains(adjVertex)) {
+                    stack.push(adjVertex);
+                }
+
+            }
         }
 
         return visited;
