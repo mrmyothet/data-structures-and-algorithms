@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
  * C - F
  *
  */
-public class AdjancenvyMatrixGraphTest {
+public class AdjancencyMatrixGraphTest {
 
     @Test
     public void test_GraphEdge_Exist() {
