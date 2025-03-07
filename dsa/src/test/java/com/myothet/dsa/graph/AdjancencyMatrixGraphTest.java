@@ -31,7 +31,7 @@ public class AdjancencyMatrixGraphTest {
         graph.addVertice("E");
         graph.addVertice("F");
 
-        graph.buildMatrix();
+        graph.build();
 
         // edges 
         graph.addEdge("A", "B");
@@ -59,7 +59,7 @@ public class AdjancencyMatrixGraphTest {
         graph.addVertice("E");
         graph.addVertice("F");
 
-        graph.buildMatrix();
+        graph.build();
 
         // edges 
         graph.addEdge("A", "B");
@@ -72,13 +72,13 @@ public class AdjancencyMatrixGraphTest {
 
         graph.addEdge("D", "E"); // cycle case
 
-        List<String> adjacentVertices = graph.getAdjacentVertices("A");
+        List<String> adjacentVertices = graph.getAdjacentVertex("A");
         Iterator<String> iterator = adjacentVertices.iterator();
         assertEquals("B", iterator.next());
         assertEquals("C", iterator.next());
         assertFalse(iterator.hasNext());
 
-        adjacentVertices = graph.getAdjacentVertices("B");
+        adjacentVertices = graph.getAdjacentVertex("B");
         iterator = adjacentVertices.iterator();
         assertEquals("A", iterator.next());
         assertEquals("D", iterator.next());
@@ -112,7 +112,7 @@ public class AdjancencyMatrixGraphTest {
         graph.addVertice("E");
         graph.addVertice("F");
 
-        graph.buildMatrix();
+        graph.build();
 
         // edges 
         graph.addEdge("A", "B");
@@ -141,7 +141,7 @@ public class AdjancencyMatrixGraphTest {
          *
          * stack - push reverse order
          */
-        List<String> dfsVertices = graph.DepthFirstSearch();
+        List<String> dfsVertices = graph.depthFirstSearch();
         Iterator<String> iterator = dfsVertices.iterator();
 
         assertEquals("A", iterator.next());

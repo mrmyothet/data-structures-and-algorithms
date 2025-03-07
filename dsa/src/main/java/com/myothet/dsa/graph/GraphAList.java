@@ -3,19 +3,11 @@ package com.myothet.dsa.graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphAList {
-
-    List<String> vertices = new ArrayList<>();
+public class GraphAList extends Graph {
 
     List<List<String>> adjacencyList = new ArrayList<List<String>>();
 
-    public void addVertice(String vertex) {
-        if (!this.vertices.contains(vertex)) {
-            this.vertices.add(vertex);
-        }
-
-    }
-
+    @Override
     public void build() {
         for (String vertice : this.vertices) {
             List<String> adjList = new ArrayList<>();
@@ -23,18 +15,30 @@ public class GraphAList {
         }
     }
 
+    @Override
     public void addEdge(String from, String to) {
         int fromIndex = this.vertices.indexOf(from);
         List<String> adjList = this.adjacencyList.get(fromIndex);
         adjList.add(to);
 
-        //this.addEdge(to, from);
+        int toIndex = this.vertices.indexOf(to);
+        adjList = this.adjacencyList.get(toIndex);
+        adjList.add(from);
+
     }
 
+    @Override
     public boolean existEdge(String from, String to) {
         int fromIndex = this.vertices.indexOf(from);
         List<String> adjList = this.adjacencyList.get(fromIndex);
         return adjList.contains(to);
+    }
+
+    @Override
+    public List<String> getAdjacentVertex(String from) {
+        int fromIndex = this.vertices.indexOf(from);
+        List<String> adjList = this.adjacencyList.get(fromIndex);
+        return adjList;
     }
 
 }

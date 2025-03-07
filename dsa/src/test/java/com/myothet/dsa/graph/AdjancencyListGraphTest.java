@@ -21,7 +21,7 @@ public class AdjancencyListGraphTest {
 
     @Test
     public void test_GraphEdge_Exist() {
-        GraphAMatrix graph = new GraphAMatrix();
+        Graph graph = new GraphAMatrix();
 
         // vertices 
         graph.addVertice("A");
@@ -31,7 +31,7 @@ public class AdjancencyListGraphTest {
         graph.addVertice("E");
         graph.addVertice("F");
 
-        graph.buildMatrix();
+        graph.build();
 
         // edges 
         graph.addEdge("A", "B");
@@ -49,7 +49,7 @@ public class AdjancencyListGraphTest {
 
     @Test
     public void test_AdjacentVertices() {
-        GraphAMatrix graph = new GraphAMatrix();
+        Graph graph = new GraphAMatrix();
 
         // vertices 
         graph.addVertice("A");
@@ -59,7 +59,7 @@ public class AdjancencyListGraphTest {
         graph.addVertice("E");
         graph.addVertice("F");
 
-        graph.buildMatrix();
+        graph.build();
 
         // edges 
         graph.addEdge("A", "B");
@@ -67,18 +67,18 @@ public class AdjancencyListGraphTest {
 
         graph.addEdge("B", "D");
         graph.addEdge("B", "E");
-        
+
         graph.addEdge("C", "F");
 
         graph.addEdge("D", "E"); // cycle case
 
-        List<String> adjacentVertices = graph.getAdjacentVertices("A");
+        List<String> adjacentVertices = graph.getAdjacentVertex("A");
         Iterator<String> iterator = adjacentVertices.iterator();
         assertEquals("B", iterator.next());
         assertEquals("C", iterator.next());
         assertFalse(iterator.hasNext());
 
-        adjacentVertices = graph.getAdjacentVertices("B");
+        adjacentVertices = graph.getAdjacentVertex("B");
         iterator = adjacentVertices.iterator();
         assertEquals("A", iterator.next());
         assertEquals("D", iterator.next());
@@ -102,7 +102,7 @@ public class AdjancencyListGraphTest {
         /**
          * A-B-D-E-C-F
          */
-        GraphAMatrix graph = new GraphAMatrix();
+        Graph graph = new GraphAMatrix();
 
         // vertices 
         graph.addVertice("A");
@@ -112,7 +112,7 @@ public class AdjancencyListGraphTest {
         graph.addVertice("E");
         graph.addVertice("F");
 
-        graph.buildMatrix();
+        graph.build();
 
         // edges 
         graph.addEdge("A", "B");
@@ -120,7 +120,7 @@ public class AdjancencyListGraphTest {
 
         graph.addEdge("B", "D");
         graph.addEdge("B", "E");
-        
+
         graph.addEdge("C", "F");
 
         graph.addEdge("D", "E"); // cycle case
@@ -141,7 +141,7 @@ public class AdjancencyListGraphTest {
          *
          * stack - push reverse order
          */
-        List<String> dfsVertices = graph.DepthFirstSearch();
+        List<String> dfsVertices = graph.depthFirstSearch();
         Iterator<String> iterator = dfsVertices.iterator();
 
         assertEquals("A", iterator.next());
@@ -151,5 +151,50 @@ public class AdjancencyListGraphTest {
         assertEquals("C", iterator.next());
         assertEquals("F", iterator.next());
     }
+    
+    /*
+	 * 	A-B 
+	 * 	A-C
+	 *  B-D
+	 *  B-E
+	 *  C-F
+	 *  D-E
+	 * */
+	
+	@Test
+	public void test_BFS()
+	{
+		//Graph graph = new GraphAList();
+		Graph graph = new GraphAMatrix();
+		graph.addVertice("A");
+		graph.addVertice("B");
+		graph.addVertice("C");
+		graph.addVertice("D");
+		graph.addVertice("E");
+		graph.addVertice("F");
+		
+		graph.build();
+		
+		graph.addEdge("A","B");
+		graph.addEdge("A","C");
+		graph.addEdge("B","D");
+		graph.addEdge("B","E");
+		graph.addEdge("C","F");
+		graph.addEdge("D","E");//add cycle
+		
+		/*
+		 * A,B,C,D,E,F
+		 * */
+	
+		List<String> dfsVertices = graph.breathFirstSearch();
+		Iterator<String> iterator  = dfsVertices.iterator();
+		assertEquals("A",iterator.next());
+		assertEquals("B",iterator.next());
+		assertEquals("C",iterator.next());
+		assertEquals("D",iterator.next());
+		assertEquals("E",iterator.next());
+		assertEquals("F",iterator.next());
+		
+	}
 
 }
